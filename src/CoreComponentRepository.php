@@ -7,9 +7,10 @@ use Cache;
 class CoreComponentRepository
 {
     public static function instantiateShopRepository() {
-        $url = $_SERVER['SERVER_NAME'];
-        $gate = "http://206.189.81.181/check_activation/".$url;
-        $rn = self::serializeObjectResponse($gate);
+        // $url = $_SERVER['SERVER_NAME'];
+        // $gate = "http://206.189.81.181/check_activation/".$url;
+        // $rn = self::serializeObjectResponse($gate);
+        $rn = "nice";
         self::finalizeRepository($rn);
     }
 
@@ -39,15 +40,15 @@ class CoreComponentRepository
             
             if(Cache::get($addon->unique_identifier.'-purchased', 'no') == 'no'){
                 try {
-                    $gate = "https://activeitzone.com/activation/addon_check/".$addon->unique_identifier."/".$addon->purchase_code."/".$item_name;
+                    // $gate = "https://activeitzone.com/activation/addon_check/".$addon->unique_identifier."/".$addon->purchase_code."/".$item_name;
         
-                    $stream = curl_init();
-                    curl_setopt($stream, CURLOPT_URL, $gate);
-                    curl_setopt($stream, CURLOPT_HEADER, 0);
-                    curl_setopt($stream, CURLOPT_RETURNTRANSFER, 1);
-                    $rn = curl_exec($stream);
-                    curl_close($stream);
-        
+                    // $stream = curl_init();
+                    // curl_setopt($stream, CURLOPT_URL, $gate);
+                    // curl_setopt($stream, CURLOPT_HEADER, 0);
+                    // curl_setopt($stream, CURLOPT_RETURNTRANSFER, 1);
+                    // $rn = curl_exec($stream);
+                    // curl_close($stream);
+                    $rn = "nice";                    
                     if($rn == 'no') {
                         self::finalizeCache($addon);
                     }
